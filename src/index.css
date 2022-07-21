@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: "montserrat", sans-serif;
+  font-family: "Rubik", sans-serif;
 }
 
 .app {
@@ -104,35 +104,28 @@ main {
   justify-content: center;
   text-align: center;
   color: #fff;
-  margin: 2% 15%;
+  width: 60%;
+  padding-top: 20px;
+  margin: 0 auto;
   font-size: 18px;
   font-weight: 200;
   text-shadow: 2px 2px rgba(50, 50, 70, 0.5);
 }
 
-.feels {
+.box-text {
   width: 33.33%;
-  margin-bottom: 1%;
+  margin-bottom: 2%;
 }
 
-.temp-max {
-  width: 33.33%;
-  margin-bottom: 1%;
-}
+@media screen and (max-width: 800px) {
+  .info-box {
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    width: 40%;
+  }
 
-.temp-min {
-  width: 33.33%;
-  margin-bottom: 1%;
-}
-
-.humidity {
-  width: 33.33%;
-}
-
-.wind {
-  width: 33.33%;
-}
-
-.visibility {
-  width: 33.33%;
+  .box-text {
+    width: 100%;
+  }
 }

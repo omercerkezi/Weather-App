@@ -1,4 +1,10 @@
+import ReactDOM from "react-dom";
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSun } from "@fortawesome/free-solid-svg-icons";
+import { faCloud } from "@fortawesome/free-solid-svg-icons";
+import { faCloudRain } from "@fortawesome/free-solid-svg-icons";
+import { faSnowflake } from "@fortawesome/free-solid-svg-icons";
 
 const api = {
   key: "436ff3db589f092969e909073b241eee",
@@ -18,6 +24,18 @@ function App() {
           setQuery("");
           console.log(result);
         });
+    }
+  };
+
+  const icons = (i) => {
+    if (i == "Rain") {
+      return <FontAwesomeIcon icon={faCloudRain} />;
+    } else if (i == "Clouds") {
+      return <FontAwesomeIcon icon={faCloud} />;
+    } else if (i == "Snow") {
+      return <FontAwesomeIcon icon={faSnowflake} />;
+    } else {
+      return <FontAwesomeIcon icon={faSun} />;
     }
   };
 
@@ -84,26 +102,29 @@ function App() {
               <div className="date">{dateBuilder(new Date())}</div>
             </div>
             <div className="weather-box">
-              <div className="temp">{Math.round(weather.main.temp)}°C</div>
+              <div className="temp">
+                {icons(weather.weather[0].main)} {Math.round(weather.main.temp)}
+                °C
+              </div>
               <div className="weather">{weather.weather[0].main}</div>
             </div>
             <div className="info-box">
-              <div className="feels">
+              <div className="box-text">
                 Feels Like {Math.round(weather.main.feels_like)}°C
               </div>
-              <div className="temp-max">
+              <div className="box-text">
                 Temp max {Math.round(weather.main.temp_max)}°C
               </div>
-              <div className="temp-min">
+              <div className="box-text">
                 Tem min {Math.round(weather.main.temp_min)}°C
               </div>
-              <div className="humidity">
+              <div className="box-text">
                 Humidity {Math.round(weather.main.humidity)}%
               </div>
-              <div className="wind">
+              <div className="box-text">
                 Wind {Math.round(weather.wind.speed)}km/h
               </div>
-              <div className="visibility">
+              <div className="box-text">
                 Visibility {weather.visibility / 1000}km
               </div>
             </div>
